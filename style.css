@@ -1,0 +1,140 @@
+/* Styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Styling for the game title */
+.title {
+    font-family: 'Press Start 2P', cursive;  /* Apply the custom font */
+    font-size: 36px;  /* Font size */
+    text-align: center;  /* Center the title */
+    color: #ff6347;  /* Tomato color for the title */
+    margin-bottom: 20px;  /* Add some space below the title */
+    text-transform: uppercase;  /* Make the text uppercase */
+    letter-spacing: 2px;  /* Add spacing between letters */
+}
+
+/* Game Board Styling */
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(20, 40px);  /* 8 columns with a fixed width */
+    grid-template-rows: repeat(20, 40px);     /* 8 rows with a fixed height */
+    gap: 2px;                               /* Space between cells */
+    margin: 20px auto;
+    width: fit-content;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Styling for each cell */
+
+/*.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;  /* Allows positioning of emoji on top of the cell */
+    /*transition: background-color 0.3s ease, transform 0.2s ease;}  */
+
+
+.cell {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;  /* Allows positioning of other elements on top */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-image: url('BoilPot.jpg'); /* Add the image */
+    background-size: cover; /* Scale the image to cover the cell */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+}
+/* When a cell is clicked and revealed */
+.cell.revealed {
+    pointer-events: none;  /* Disable further clicking */
+    background-color: #dcdcdc;  /* Light gray background when revealed */
+}
+
+/* Hotdog (target) styling */
+.cell.target {
+    background-color: green;  /* Green background for the hotdog cell */
+    color: white;
+}
+
+/* Styling for proximity to the hotdog */
+.cell {
+    background-color: #f4f4f4; /* Default background for unrevealed cells */
+    color: transparent; /* Hide text initially */
+}
+
+
+
+/* Colors and emojis based on the distance to the hotdog */
+.cell[data-distance="0"] {
+    background-color: green;  /* Hotdog - green */
+    color: white;
+}
+
+.cell[data-distance="1"] {
+    background-color: red;  /* Close - red */
+}
+
+.cell[data-distance="1"]::before {
+    content: "🔥";  /* Fire emoji for close proximity */
+    font-size: 24px; /* Emoji size */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the emoji */
+}
+
+.cell[data-distance="2"] {
+    background-color: orange;  /* Medium distance - orange */
+}
+
+.cell[data-distance="2"]::before {
+    content: "💧";  /* Water emoji for medium proximity */
+    font-size: 24px; /* Emoji size */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the emoji */
+}
+
+.cell[data-distance="3"], 
+.cell[data-distance="4"] {
+    background-color: blue;  /* Far distance - blue */
+}
+
+.cell[data-distance="3"]::before, 
+.cell[data-distance="4"]::before {
+    content: "❄️";  /* Snowflake emoji for far proximity */
+    font-size: 24px; /* Emoji size */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the emoji */
+}
+
+/* Hover effect for better interaction */
+.cell:hover {
+    transform: scale(1.1);  /* Slightly enlarge the cell on hover */
+    background-color: #ddd;  /* Light gray when hovering over a cell */
+}
+
+/* Message box styling */
+.alert {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
